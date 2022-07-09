@@ -21,6 +21,8 @@ export class JwtRolesAuthGuard implements CanActivate {
 
       const user = this.jwtService.verify(token) as User;
       req.user = user;
+      console.log(requiredRoles);
+      console.log(user.roles);
       return user.roles.some((role) => requiredRoles.includes(role.value));
     } catch (e) {
       throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
