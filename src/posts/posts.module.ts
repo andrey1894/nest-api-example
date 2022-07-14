@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { FilesModule } from 'src/files/files.module';
-import { User } from 'src/users/users.model';
+
+import { FilesModule } from '@/files/files.module';
+import { User } from '@/users/users.model';
+
 import { PostsController } from './posts.controller';
-import { Post } from './posts.model';
 import { PostsService } from './posts.service';
+import { Post } from './posts.model';
 
 @Module({
   controllers: [PostsController],
