@@ -2,6 +2,7 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { LoginUserDto } from 'src/users/dto/login-user.dto';
 import { AuthService } from './auth.service';
 
 @ApiTags('Auth')
@@ -12,7 +13,7 @@ export class AuthController {
   @ApiOperation({ summary: 'Login' })
   @ApiResponse({ status: 200, type: String })
   @Post('/login')
-  login(@Body() userDto: CreateUserDto) {
+  login(@Body() userDto: LoginUserDto) {
     return this.authService.login(userDto);
   }
 

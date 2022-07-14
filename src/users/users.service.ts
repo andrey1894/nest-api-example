@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import { Role } from 'src/roles/roles.model';
 import { RolesService } from 'src/roles/roles.service';
 import { BanUserDto } from './dto/ban-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -19,12 +20,12 @@ export class UsersService {
   }
 
   async getAllUsers() {
-    const users = await this.userRepository.findAll({ include: { all: true } });
+    const users = await this.userRepository.findAll({ include: Role });
     return users;
   }
 
   async getUsersByEmail(email: string) {
-    const user = await this.userRepository.findOne({ where: { email }, include: { all: true } });
+    const user = await this.userRepository.findOne({ where: { email }, include: Role });
     return user;
   }
 

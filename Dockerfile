@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY ["package.json", "yarn.lock"]
 
+RUN npm install -g sequelize-cli
 RUN yarn
 
 COPY . .

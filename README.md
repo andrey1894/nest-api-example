@@ -73,4 +73,29 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 Nest is [MIT licensed](LICENSE).
 
 
-docker exec --user root -it postgres bash
+docker exec --user postgres -it postgres bash
+psql
+\password
+
+
+docker compose up
+
+
+docker exec --user root -it nest-api-example_main bash
+
+docker compose exec main node --require ts-node/register ./node_modules/sequelize/index.js migration:generate -n UserRefac
+docker compose exec main node --require ts-node/register sequelize-cli db:migrate
+
+
+npx sequelize-cli db:migrate
+
+docker compose run --rm app npx sequelize-cli db:migrate
+
+
+docker-compose exec main bash
+
+
+
+docker exec --user root -it main sh
+sequelize-cli db:migrate
+
